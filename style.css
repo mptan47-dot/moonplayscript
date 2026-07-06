@@ -1,0 +1,89 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#09090f;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+.background{
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle at top,#7b2cff22,#09090f 60%);
+    z-index:-1;
+}
+
+header{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(15px);
+    background:rgba(15,15,25,.7);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#b14cff;
+}
+
+.search-box input{
+    width:320px;
+    max-width:100%;
+    padding:14px 18px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:#181828;
+    color:white;
+}
+
+.games{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    padding:60px 8%;
+}
+
+.game-card{
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.35s;
+}
+
+.game-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 30px rgba(177,76,255,.45);
+}
+
+.game-image{
+    height:180px;
+    background:linear-gradient(135deg,#7b2cff,#32104f);
+}
+
+.game-info{
+    padding:20px;
+}
+
+.game-info h2{
+    margin-bottom:10px;
+}
+
+.game-info p{
+    color:#bdbdbd;
+}
