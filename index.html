@@ -1,308 +1,153 @@
-/* ===========================
-   MoonPlayScript V2
-   Premium Theme - Part 1
-=========================== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"Poppins",sans-serif;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-:root{
+<title>MoonPlayScript</title>
 
---bg:#07070b;
---bg2:#11111a;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
---card:#141420;
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
---purple:#8B5CF6;
---purple2:#6D28D9;
+<link rel="stylesheet" href="style.css">
 
---text:#ffffff;
---text2:#bdbdc7;
+</head>
 
---border:rgba(255,255,255,.08);
+<body>
 
-}
+<div class="background"></div>
 
-html{
+<header class="navbar">
 
-scroll-behavior:smooth;
+<div class="logo">
 
-}
+🌙 MoonPlayScript
 
-body{
+</div>
 
-background:var(--bg);
+<div class="search">
 
-color:var(--text);
+<input
+type="text"
+id="searchInput"
+placeholder="Search Roblox Games...">
 
-overflow-x:hidden;
+</div>
 
-min-height:100vh;
+</header>
 
-}
+<section class="hero">
 
-/* Animated Background */
+<h1>Premium Roblox Script Hub</h1>
 
-.background{
+<p>
+Fast • Safe • Updated Everyday
+</p>
 
-position:fixed;
+</section>
 
-top:0;
-left:0;
+<main>
 
-width:100%;
-height:100%;
+<section class="games">
 
-z-index:-2;
+<a class="card" href="pages/blade-ball.html">
 
-background:
-radial-gradient(circle at 15% 20%,rgba(139,92,246,.25),transparent 35%),
+<div class="image"></div>
 
-radial-gradient(circle at 85% 80%,rgba(109,40,217,.20),transparent 35%),
+<div class="content">
 
-linear-gradient(180deg,#050508,#0b0b12);
+<h2>Blade Ball</h2>
 
-}
+<p>Premium Roblox Script</p>
 
-/* Navbar */
+</div>
 
-.navbar{
+</a>
 
-position:sticky;
+<a class="card" href="pages/blox-fruits.html">
 
-top:0;
+<div class="image"></div>
 
-width:100%;
+<div class="content">
 
-display:flex;
+<h2>Blox Fruits</h2>
 
-justify-content:space-between;
+<p>Premium Roblox Script</p>
 
-align-items:center;
+</div>
 
-padding:22px 8%;
+</a>
 
-backdrop-filter:blur(18px);
+<a class="card" href="pages/grow-a-garden.html">
 
-background:rgba(7,7,11,.65);
+<div class="image"></div>
 
-border-bottom:1px solid var(--border);
+<div class="content">
 
-z-index:999;
+<h2>Grow A Garden</h2>
 
-}
+<p>Premium Roblox Script</p>
 
-.logo{
+</div>
 
-font-size:30px;
+</a>
 
-font-weight:800;
+<a class="card" href="pages/fisch.html">
 
-color:white;
+<div class="image"></div>
 
-letter-spacing:.5px;
+<div class="content">
 
-}
+<h2>Fisch</h2>
 
-.logo span{
+<p>Premium Roblox Script</p>
 
-color:var(--purple);
+</div>
 
-}
+</a>
 
-/* Search */
+<a class="card" href="pages/gym-league.html">
 
-.search{
+<div class="image"></div>
 
-width:420px;
+<div class="content">
 
-max-width:100%;
+<h2>Gym League</h2>
 
-}
+<p>Premium Roblox Script</p>
 
-.search input{
+</div>
 
-width:100%;
+</a>
 
-padding:15px 22px;
+<a class="card" href="pages/blue-lock-rivals.html">
 
-border:none;
+<div class="image"></div>
 
-outline:none;
+<div class="content">
 
-border-radius:18px;
+<h2>Blue Lock Rivals</h2>
 
-background:#171722;
+<p>Premium Roblox Script</p>
 
-color:white;
+</div>
 
-font-size:15px;
+</a>
 
-transition:.35s;
+</section>
 
-border:1px solid transparent;
+</main>
 
-}
+<footer>
 
-.search input:focus{
+© 2026 MoonPlayScript
 
-border-color:var(--purple);
+</footer>
 
-box-shadow:0 0 25px rgba(139,92,246,.45);
+<script src="script.js"></script>
 
-}
-
-/* Hero */
-
-.hero{
-
-text-align:center;
-
-padding:90px 20px 70px;
-
-}
-
-.hero h1{
-
-font-size:58px;
-
-font-weight:800;
-
-line-height:1.1;
-
-margin-bottom:18px;
-
-}
-
-.hero p{
-
-font-size:20px;
-
-color:var(--text2);
-
-}
-
-/* Games Grid */
-
-.games{
-
-width:min(1400px,92%);
-
-margin:auto;
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-gap:32px;
-
-padding-bottom:80px;
-
-}
-
-/* Cards */
-
-.card{
-
-background:rgba(255,255,255,.03);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:24px;
-
-overflow:hidden;
-
-text-decoration:none;
-
-color:white;
-
-transition:.35s;
-
-backdrop-filter:blur(12px);
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-border-color:rgba(139,92,246,.8);
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.45),
-0 0 30px rgba(139,92,246,.35);
-
-}
-
-.image{
-
-height:220px;
-
-background:
-linear-gradient(135deg,#6D28D9,#8B5CF6);
-
-}
-
-.content{
-
-padding:24px;
-
-}
-
-.content h2{
-
-font-size:24px;
-
-margin-bottom:8px;
-
-}
-
-.content p{
-
-color:var(--text2);
-
-}
-
-/* Footer */
-
-footer{
-
-padding:40px;
-
-text-align:center;
-
-color:#888;
-
-border-top:1px solid rgba(255,255,255,.05);
-
-}
-
-/* Mobile */
-
-@media(max-width:850px){
-
-.navbar{
-
-flex-direction:column;
-
-gap:18px;
-
-}
-
-.hero h1{
-
-font-size:38px;
-
-}
-
-.hero p{
-
-font-size:16px;
-
-}
-
-}
+</body>
+</html>
