@@ -1,62 +1,215 @@
-// ===============================
-// SCRIPT HUB PREMIUM
-// script.js
-// ===============================
+/* =========================
+   DOORS NEW DESIGN
+========================= */
 
-// Sayfa açılış animasyonu
-window.addEventListener("load", () => {
-    document.body.classList.add("loaded");
-});
+.verify-buttons{
 
-// Kart animasyonu
-const cards = document.querySelectorAll(".card");
+display:flex;
 
-cards.forEach((card, index) => {
+gap:20px;
 
-    card.style.opacity = "0";
-    card.style.transform = "translateY(50px)";
+justify-content:center;
 
-    setTimeout(() => {
+margin:35px 0;
 
-        card.style.transition = "0.6s ease";
+}
 
-        card.style.opacity = "1";
 
-        card.style.transform = "translateY(0px)";
+.verify-btn{
 
-    }, 250 * index);
+display:flex;
 
-});
+align-items:center;
 
-// Mouse parallax efekti
-document.addEventListener("mousemove", (e) => {
+gap:10px;
 
-    const x = (window.innerWidth / 2 - e.clientX) / 70;
-    const y = (window.innerHeight / 2 - e.clientY) / 70;
+padding:18px 30px;
 
-    document.querySelector(".header").style.transform =
-        `translate(${x}px, ${y}px)`;
+border-radius:15px;
 
-});
+background:#111;
 
-// Hover sesi için hazır (şimdilik kapalı)
-// İstersen sonra ses ekleriz
+border:1px solid #ff0000;
 
-// Sayfa geçiş efekti
-cards.forEach(card => {
+color:white;
 
-    card.addEventListener("click", function () {
+text-decoration:none;
 
-        this.style.transform = "scale(.96)";
+font-weight:700;
 
-    });
+box-shadow:0 0 15px rgba(255,0,0,.3);
 
-});
+transition:.3s;
 
-// Gelecekte arama sistemi buraya eklenecek
+}
 
-// Gelecekte tema sistemi buraya eklenecek
 
-// Gelecekte ziyaretçi sayacı buraya eklenecek
+.verify-btn:hover{
 
-// Gelecekte loading ekranı buraya eklenecek
+transform:scale(1.05);
+
+box-shadow:0 0 30px red;
+
+}
+
+
+.icon{
+
+font-size:25px;
+
+}
+
+
+
+/* Loading */
+
+.loading-area{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:15px;
+
+font-size:20px;
+
+font-weight:700;
+
+color:white;
+
+}
+
+
+.loader{
+
+width:25px;
+
+height:25px;
+
+border:4px solid #333;
+
+border-top:4px solid red;
+
+border-radius:50%;
+
+animation:spin 1s linear infinite;
+
+}
+
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+/* Code */
+
+.script-box{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-top:30px;
+
+background:#080808;
+
+padding:20px;
+
+border-radius:20px;
+
+border:1px solid rgba(255,0,0,.3);
+
+}
+
+
+.code-area{
+
+flex:1;
+
+overflow:hidden;
+
+}
+
+
+#scriptCode{
+
+background:#000;
+
+padding:20px;
+
+border-radius:15px;
+
+color:#777;
+
+filter:blur(4px);
+
+font-size:15px;
+
+}
+
+
+#copyBtn{
+
+width:120px;
+
+height:55px;
+
+border:none;
+
+border-radius:15px;
+
+background:red;
+
+color:white;
+
+font-weight:800;
+
+cursor:pointer;
+
+}
+
+
+#copyBtn:disabled{
+
+opacity:.5;
+
+cursor:not-allowed;
+
+}
+
+
+@media(max-width:700px){
+
+.verify-buttons{
+
+flex-direction:column;
+
+}
+
+
+.script-box{
+
+flex-direction:column;
+
+}
+
+
+#copyBtn{
+
+width:100%;
+
+}
+
+}
