@@ -1,99 +1,103 @@
 const telegramBtn = document.getElementById("telegramBtn");
 const youtubeBtn = document.getElementById("youtubeBtn");
 
-const timerBox = document.getElementById("timer");
-const countdown = document.getElementById("countdown");
+const verifyText = document.getElementById("verifyText");
+const loader = document.querySelector(".loader");
 
 const scriptCode = document.getElementById("scriptCode");
 const copyBtn = document.getElementById("copyBtn");
 
-let verified = false;
-let clicks = 0;
+
+let clicked = 0;
+let started = false;
+
 
 const realScript = "loadstring(game:HttpGet('https://raw.smokingscripts.org/vertex.lua'))()";
 
+
 telegramBtn.onclick = () => {
 
-    window.open(
-        "https://t.me/+5BGGE1G9kWoyM2I0",
-        "_blank"
-    );
+window.open(
+"https://t.me/+5BGGE1G9kWoyM2I0",
+"_blank"
+);
 
-    startVerify();
+check();
 
 };
 
 
 youtubeBtn.onclick = () => {
 
-    window.open(
-        "https://youtube.com/@moonplay-y7t?si=EXUM2hL54fEdWjB-",
-        "_blank"
-    );
+window.open(
+"https://youtube.com/@moonplay-y7t?si=EXUM2hL54fEdWjB-",
+"_blank"
+);
 
-    startVerify();
+check();
 
 };
 
 
-function startVerify(){
+function check(){
 
-    if(verified) return;
-
-    clicks++;
-
-    if(clicks >= 2){
-
-        timerBox.style.display = "block";
-
-        let time = 10;
-
-        countdown.innerHTML = time;
+clicked++;
 
 
-        let interval = setInterval(()=>{
+if(clicked >= 2 && !started){
 
-            time--;
+started = true;
 
-            countdown.innerHTML = time;
+startLoading();
 
-
-            if(time <= 0){
-
-                clearInterval(interval);
-
-                unlockScript();
-
-            }
-
-        },1000);
-
-    }
+}
 
 }
 
 
-function unlockScript(){
 
-    verified = true;
+function startLoading(){
 
-    scriptCode.innerHTML = realScript;
+verifyText.innerHTML = "VERIFYING...";
 
-    copyBtn.disabled = false;
+loader.style.display = "block";
+
+
+setTimeout(()=>{
+
+
+verifyText.innerHTML = "VERIFIED ✓";
+
+loader.style.display = "none";
+
+
+scriptCode.innerHTML = realScript;
+
+
+copyBtn.disabled = false;
+
+
+},10000);
+
 
 }
+
 
 
 copyBtn.onclick = ()=>{
 
-    navigator.clipboard.writeText(realScript);
 
-    copyBtn.innerHTML = "COPIED!";
+navigator.clipboard.writeText(realScript);
 
-    setTimeout(()=>{
 
-        copyBtn.innerHTML = "COPY SCRIPT";
+copyBtn.innerHTML = "COPIED ✓";
 
-    },2000);
+
+setTimeout(()=>{
+
+copyBtn.innerHTML="COPY";
+
+},2000);
+
 
 };
