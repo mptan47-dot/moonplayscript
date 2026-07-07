@@ -1,43 +1,24 @@
 /* ===========================
-   MoonPlayScript V2
-   Premium Theme - Part 1
+   SCRIPT HUB PREMIUM THEME
 =========================== */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:"Poppins",sans-serif;
-}
-
-:root{
-
---bg:#07070b;
---bg2:#11111a;
-
---card:#141420;
-
---purple:#8B5CF6;
---purple2:#6D28D9;
-
---text:#ffffff;
---text2:#bdbdc7;
-
---border:rgba(255,255,255,.08);
-
 }
 
 html{
-
 scroll-behavior:smooth;
-
 }
 
 body{
 
-background:var(--bg);
+font-family:'Poppins',sans-serif;
 
-color:var(--text);
+background:#050505;
+
+color:white;
 
 overflow-x:hidden;
 
@@ -45,264 +26,148 @@ min-height:100vh;
 
 }
 
-/* Animated Background */
+/* ===========================
+      SNOW BACKGROUND
+=========================== */
 
-.background{
+#snow{
 
 position:fixed;
 
 top:0;
+
 left:0;
 
 width:100%;
+
 height:100%;
 
-z-index:-2;
+pointer-events:none;
 
-background:
-radial-gradient(circle at 15% 20%,rgba(139,92,246,.25),transparent 35%),
+z-index:0;
 
-radial-gradient(circle at 85% 80%,rgba(109,40,217,.20),transparent 35%),
+background-image:
 
-linear-gradient(180deg,#050508,#0b0b12);
+radial-gradient(white 1px,transparent 1px),
+radial-gradient(#cccccc 1px,transparent 1px),
+radial-gradient(#ffffff 2px,transparent 2px);
+
+background-size:
+120px 120px,
+180px 180px,
+250px 250px;
+
+animation:snowFall 18s linear infinite;
+
+opacity:.45;
 
 }
 
-/* Navbar */
+@keyframes snowFall{
 
-.navbar{
+0%{
 
-position:sticky;
+transform:translateY(-100px);
 
-top:0;
+}
 
-width:100%;
+100%{
 
-display:flex;
+transform:translateY(900px);
 
-justify-content:space-between;
+}
 
-align-items:center;
+}
 
-padding:22px 8%;
+/* ===========================
+          HEADER
+=========================== */
 
-backdrop-filter:blur(18px);
+.header{
 
-background:rgba(7,7,11,.65);
+position:relative;
 
-border-bottom:1px solid var(--border);
+z-index:2;
 
-z-index:999;
+text-align:center;
+
+padding:45px 20px;
 
 }
 
 .logo{
 
-font-size:30px;
-
-font-weight:800;
-
-color:white;
-
-letter-spacing:.5px;
-
-}
-
-.logo span{
-
-color:var(--purple);
-
-}
-
-/* Search */
-
-.search{
-
-width:420px;
-
-max-width:100%;
-
-}
-
-.search input{
-
-width:100%;
-
-padding:15px 22px;
-
-border:none;
-
-outline:none;
-
-border-radius:18px;
-
-background:#171722;
-
-color:white;
-
-font-size:15px;
-
-transition:.35s;
-
-border:1px solid transparent;
-
-}
-
-.search input:focus{
-
-border-color:var(--purple);
-
-box-shadow:0 0 25px rgba(139,92,246,.45);
-
-}
-
-/* Hero */
-
-.hero{
-
-text-align:center;
-
-padding:90px 20px 70px;
-
-}
-
-.hero h1{
-
 font-size:58px;
 
 font-weight:800;
 
-line-height:1.1;
+letter-spacing:5px;
 
-margin-bottom:18px;
+color:#ff1f1f;
+
+text-shadow:
+
+0 0 10px #ff0000,
+
+0 0 25px #ff0000,
+
+0 0 45px #ff0000,
+
+0 0 80px #ff0000;
+
+animation:logoGlow 2.5s ease-in-out infinite alternate;
 
 }
 
-.hero p{
+.subtitle{
 
-font-size:20px;
+margin-top:12px;
 
-color:var(--text2);
+font-size:18px;
+
+color:#d0d0d0;
+
+letter-spacing:2px;
 
 }
 
-/* Games Grid */
+@keyframes logoGlow{
 
-.games{
+from{
 
-width:min(1400px,92%);
+transform:scale(1);
 
-margin:auto;
+}
+
+to{
+
+transform:scale(1.03);
+
+}
+
+}
+
+/* ===========================
+          CARDS
+=========================== */
+
+.cards{
+
+position:relative;
+
+z-index:2;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
 
-gap:32px;
-
-padding-bottom:80px;
-
-}
-
-/* Cards */
-
-.card{
-
-background:rgba(255,255,255,.03);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:24px;
-
-overflow:hidden;
-
-text-decoration:none;
-
-color:white;
-
-transition:.35s;
-
-backdrop-filter:blur(12px);
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-border-color:rgba(139,92,246,.8);
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.45),
-0 0 30px rgba(139,92,246,.35);
-
-}
-
-.image{
-
-height:220px;
-
-background:
-linear-gradient(135deg,#6D28D9,#8B5CF6);
-
-}
-
-.content{
-
-padding:24px;
-
-}
-
-.content h2{
-
-font-size:24px;
-
-margin-bottom:8px;
-
-}
-
-.content p{
-
-color:var(--text2);
-
-}
-
-/* Footer */
-
-footer{
+gap:30px;
 
 padding:40px;
 
-text-align:center;
+max-width:1400px;
 
-color:#888;
-
-border-top:1px solid rgba(255,255,255,.05);
-
-}
-
-/* Mobile */
-
-@media(max-width:850px){
-
-.navbar{
-
-flex-direction:column;
-
-gap:18px;
-
-}
-
-.hero h1{
-
-font-size:38px;
-
-}
-
-.hero p{
-
-font-size:16px;
-
-}
+margin:auto;
 
 }
