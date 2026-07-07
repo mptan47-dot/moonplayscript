@@ -1,0 +1,1 @@
+// Doors page script
