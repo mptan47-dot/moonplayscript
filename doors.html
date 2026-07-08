@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOORS SCRIPT</title>
-    <link rel="stylesheet" href="style.css">
+    <title>DOORS SCRIPT - AY OYUNU</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <a href="index.html" class="back-btn">← GERİ DÖN</a>
+        <a href="index.html" class="back-btn">← ANA SAYFAYA DÖN</a>
         <h1 class="neon-title">DOORS SCRIPT</h1>
 
         <div class="alert-box">
-            ⚠️ SCRIPT kilitlidir! Kilidi açmak için Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız!
+            ⚠️ Bu scriptin kilidini açmak için Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız!
         </div>
 
         <div class="buttons-container">
@@ -35,7 +35,10 @@
                 <div class="lock-overlay" id="lockOverlay">
                     SCRIPT'in kilidini açmak için yukarıdaki adımları tamamlayın.
                 </div>
-                <code class="code-content blurred" id="codeContent">loadstring(game:HttpGet("https://rawscripts.net/raw/DOORS-Abysall-hub-OP-205906"))()</code>
+                <code class="code-content blurred" id="codeContent">
+print("Doors Script Başarıyla Yüklendi!")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/doors"))()
+                </code>
             </div>
         </div>
     </div>
@@ -48,7 +51,7 @@
                 const overlay = document.getElementById('lockOverlay');
                 timer = setInterval(() => {
                     if (countdown > 0) {
-                        overlay.innerText = `Doğrulanıyor... Son ${countdown} saniye.`;
+                        overlay.innerText = `Doğrulanıyor... Son ${countdown} saniye. Siteden ayrılmayın!`;
                         countdown--;
                     } else {
                         clearInterval(timer);
@@ -62,7 +65,7 @@
         function copyScript() {
             const codeText = document.getElementById('codeContent').innerText;
             navigator.clipboard.writeText(codeText);
-            alert('Script panoya kopyalandı!');
+            alert('Kod başarıyla panoya kopyalandı!');
         }
     </script>
 </body>
