@@ -1,123 +1,229 @@
-/* Genel Ayarlar */
+/* Genel Ayarlar ve Kar Yağışlı Tema */
 body {
-    background-color: #050409;
+    background-color: #0b0914;
     color: #ffffff;
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
     position: relative;
+    overflow-x: hidden;
     min-height: 100vh;
 }
 
-/* Kar Yağışı Efekti Arka Planı */
 body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background-image: 
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 2px, transparent 2px);
-    background-size: 550px 550px;
-    animation: snow 12s linear infinite;
+        radial-gradient(circle, #fff 1px, transparent 1px),
+        radial-gradient(circle, #fff 1.5px, transparent 1.5px);
+    background-size: 550px 550px, 400px 400px;
+    background-position: 0 0, 40px 60px;
+    animation: snow 20s linear infinite;
     pointer-events: none;
+    opacity: 0.15;
     z-index: 1;
 }
 
 @keyframes snow {
-    0% { background-position: 0px 0px; }
-    100% { background-position: 550px 550px; }
+    0% { background-position: 0 0, 40px 60px; }
+    100% { background-position: 550px 550px, 440px 460px; }
 }
 
 .container {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 25px;
-    background: rgba(14, 11, 26, 0.65);
-    border: 1px solid rgba(255, 0, 85, 0.15);
-    border-radius: 16px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 15px;
     text-align: center;
     position: relative;
     z-index: 2;
-    backdrop-filter: blur(10px);
 }
 
-/* Kalın, Eğik Neon Kırmızı Başlık */
+/* Kırmızı Neon Başlık */
 .neon-title {
     color: #ff0044;
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     font-weight: 900;
     font-style: italic;
     text-transform: uppercase;
-    text-shadow: 0 0 10px #ff0044, 0 0 25px #ff0044, 0 0 50px #ff0044;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff0044, 0 0 25px #ff0044;
+    margin-bottom: 25px;
 }
 
-.back-btn {
-    color: #666;
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 20px;
-    font-size: 0.9.rem;
-    transition: color 0.2s;
-}
-.back-btn:hover { color: #ff0044; }
-
-.alert-box {
-    background-color: rgba(255, 0, 68, 0.07);
-    border-left: 4px solid #ff0044;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 30px;
-    color: #ffb3c6;
-    font-size: 0.95rem;
-    text-align: left;
-}
-
-/* Butonlar Grubu */
-.buttons-container {
+/* Nizamî Blogger Tarzı Kart Düzeni */
+.grid-container {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #110e22;
+    border: 1px solid #1f1a3a;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #ff0044;
+    box-shadow: 0 0 15px rgba(255, 0, 68, 0.3);
+}
+
+.card img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.card-title {
+    padding: 15px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    width: 100%;
+    background-color: #0d0a1a;
+    box-sizing: border-box;
+}
+
+/* Detay Sayfası Tasarımları */
+.back-btn {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.back-btn:hover { color: #fff; }
+
+.alert-box {
+    background: rgba(255, 0, 68, 0.1);
+    border: 1px solid #ff0044;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+/* Logolu Butonlar */
+.buttons-container {
+    display: flex;
     gap: 15px;
-    margin-bottom: 35px;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .btn {
-    padding: 14px 20px;
-    border-radius: 8px;
+    padding: 12px 25px;
+    border-radius: 6px;
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.2s;
+}
+
+.btn-telegram { background-color: #0088cc; }
+.btn-telegram:hover { box-shadow: 0 0 12px rgba(0,136,204,0.5); }
+.btn-youtube { background-color: #e50914; }
+.btn-youtube:hover { box-shadow: 0 0 12px rgba(229,9,20,0.5); }
+
+/* Profesyonel İndirme Butonu */
+.btn-download {
+    background: linear-gradient(90deg, #ff0044, #b30030);
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 20px auto;
+    display: inline-flex;
     border: none;
     cursor: pointer;
 }
-
-.btn:hover {
-    transform: translateY(-2px);
+.btn-download:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 68, 0.6);
+    transform: scale(1.02);
 }
 
-.btn-telegram {
-    background: linear-gradient(135deg, #0088cc, #006699);
-    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
-}
-.btn-youtube {
-    background: linear-gradient(135deg, #ff0000, #cc0000);
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-}
-.btn-download {
-    background: linear-gradient(135deg, #333, #111);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-    border: 1px solid #444;
-    margin-top: 15px;
+/* Kod Alanı ve Gerçek Sansür Mekanizması */
+.code-box-container {
+    background-color: #050409;
+    border: 1px solid #1a1530;
+    border-radius: 8px;
+    text-align: left;
+    overflow: hidden;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
-/* G
+.code-box-header {
+    background-color: #0f0c1f;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #716c86;
+    border-bottom: 1px solid #1a1530;
+}
+
+.copy-btn {
+    background-color: #ff0044;
+    border: none;
+    color: white;
+    padding: 5px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.code-wrapper {
+    position: relative;
+    padding: 20px;
+    background-color: #050409;
+}
+
+.code-content {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ff66;
+    white-space: pre-wrap;
+    word-break: break-all;
+    display: block;
+}
+
+/* Tam Sansür (Bulanıklık) */
+.code-content.blurred {
+    filter: blur(8px);
+    user-select: none;
+    pointer-events: none;
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 4, 9, 0.75);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    z-index: 5;
+}
