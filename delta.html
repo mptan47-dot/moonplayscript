@@ -14,22 +14,26 @@
         <h1 class="neon-title">2026 DELTA APK</h1>
 
         <div class="alert-box">
-            ⚠️ To unlock the download link, you must join our Telegram channel and subscribe to our YouTube channel!
+            ⚠️ To unlock the download link, you must join our Telegram channel AND subscribe to our YouTube channel!
         </div>
 
         <div class="buttons-container">
-            <a href="https://t.me/linkin" target="_blank" class="btn btn-telegram" onclick="startVerification()">
-                <i class="fab fa-telegram-plane"></i> Join Telegram
+            <a href="https://t.me/linkin" target="_blank" class="btn btn-telegram" onclick="clickTelegram()">
+                <i class="fab fa-telegram-plane"></i> Join Telegram <span id="tg-check" style="margin-left:5px; color:#00ff66; display:none;">✓</span>
             </a>
-            <a href="https://youtube.com/linkin" target="_blank" class="btn btn-youtube" onclick="startVerification()">
-                <i class="fab fa-youtube"></i> Subscribe YouTube
+            <a href="https://youtube.com/linkin" target="_blank" class="btn btn-youtube" onclick="clickYoutube()">
+                <i class="fab fa-youtube"></i> Subscribe YouTube <span id="yt-check" style="margin-left:5px; color:#00ff66; display:none;">✓</span>
             </a>
         </div>
 
         <div class="code-box-container">
             <div class="code-wrapper" style="min-height: 120px; display: flex; align-items: center; justify-content: center;">
                 <div class="lock-overlay" id="lockOverlay">
-                    Complete the steps above to unlock the DOWNLOAD button.
+                    Please complete BOTH steps above to unlock the DOWNLOAD button.
+                </div>
+                <div class="lock-overlay" id="loadingOverlay" style="display: none; background: #030206; z-index: 6;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: #ff0044; margin-bottom: 10px;"></i>
+                    <div id="loadingText" style="font-weight: bold; font-size: 1.1rem; color: #fff;">Loading... 10s</div>
                 </div>
                 <a href="BURAYA_MEGA_LINKINI_YAZ" id="downloadBtn" target="_blank" class="btn btn-download" style="display: none;">
                     <i class="fas fa-download"></i> DOWNLOAD (İNDİR)
@@ -39,18 +43,40 @@
     </div>
 
     <script>
-        let clicked = false; let countdown = 10; let timer;
-        function startVerification() {
-            if (!clicked) {
-                clicked = true;
-                const overlay = document.getElementById('lockOverlay');
-                timer = setInterval(() => {
+        let hasTelegram = false;
+        let hasYoutube = false;
+        let verificationStarted = false;
+
+        function clickTelegram() {
+            hasTelegram = true;
+            document.getElementById('tg-check').style.display = 'inline';
+            checkBothClicked();
+        }
+
+        function clickYoutube() {
+            hasYoutube = true;
+            document.getElementById('yt-check').style.display = 'inline';
+            checkBothClicked();
+        }
+
+        function checkBothClicked() {
+            if (hasTelegram && hasYoutube && !verificationStarted) {
+                verificationStarted = true;
+                
+                document.getElementById('lockOverlay').style.display = 'none';
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                const loadingText = document.getElementById('loadingText');
+                loadingOverlay.style.display = 'flex';
+                loadingOverlay.style.flexDirection = 'column';
+
+                let countdown = 10;
+                let timer = setInterval(() => {
                     if (countdown > 0) {
-                        overlay.innerText = `Verifying... ${countdown} seconds left. Stay on the site!`;
+                        loadingText.innerText = `Loading... ${countdown}s`;
                         countdown--;
                     } else {
                         clearInterval(timer);
-                        overlay.style.display = 'none';
+                        loadingOverlay.style.display = 'none';
                         document.getElementById('downloadBtn').style.display = 'inline-flex';
                     }
                 }, 1000);
