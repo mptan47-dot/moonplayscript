@@ -1,4 +1,4 @@
-/* Genel Ayarlar ve Kar Yağışlı Siyah Tema */
+/* Genel Ayarlar ve Kar Yağışlı Tema */
 body {
     background-color: #06050c;
     color: #ffffff;
@@ -9,7 +9,7 @@ body {
     position: relative;
 }
 
-/* Yoğunlaştırılmış Kar Yağışı Efekti */
+/* Yoğun Kar Yağışı Efekti */
 body::before {
     content: "";
     position: fixed;
@@ -31,9 +31,9 @@ body::before {
     100% { background-position: 200px 200px, 320px 360px, 470px 500px; }
 }
 
-/* Tüm İçeriği Ortada Tutan Ana Kapsayıcı */
+/* Kapsayıcı Kutu */
 .container {
-    max-width: 600px; /* İç sayfalar için daha toplu bir genişlik */
+    max-width: 600px;
     margin: 0 auto;
     padding: 40px 20px;
     text-align: center;
@@ -41,7 +41,7 @@ body::before {
     z-index: 2;
 }
 
-/* Parlayan Başlık */
+/* Parlayan Modern Başlık */
 .neon-title {
     color: #ff0044;
     font-size: 2.5rem;
@@ -76,7 +76,71 @@ body::before {
     line-height: 1.4;
 }
 
-/* Buton Grubu Düzeni */
+/* Arama Kutusu Düzeni */
+.search-wrapper {
+    position: relative;
+    max-width: 450px;
+    margin: 0 auto 35px auto;
+    display: flex;
+    align-items: center;
+}
+.search-wrapper i {
+    position: absolute;
+    left: 20px;
+    color: #ff0044;
+    font-size: 1.1rem;
+    z-index: 3;
+}
+.search-wrapper input {
+    width: 100%;
+    padding: 14px 20px 14px 50px;
+    background-color: #0d0a1a;
+    border: 2px solid #ff0044;
+    border-radius: 25px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 0, 68, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+/* Küçük Kart Yapısı (Grid) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 160px);
+    gap: 15px;
+    justify-content: center;
+}
+.card {
+    background: #0f0c1b;
+    border: 1px solid #1f1938;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    display: block;
+    max-width: 160px;
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #ff0044;
+    box-shadow: 0 0 12px rgba(255, 0, 68, 0.4);
+}
+.card img { width: 100%; height: 95px; object-fit: cover; }
+.card-title {
+    padding: 8px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    background-color: #0b0814;
+    border-top: 1px solid #1f1938;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Doğrulama Butonları */
 .buttons-container {
     display: flex;
     gap: 15px;
@@ -84,7 +148,6 @@ body::before {
     margin-bottom: 30px;
     flex-wrap: wrap;
 }
-
 .btn {
     padding: 12px 25px;
     border-radius: 6px;
@@ -100,9 +163,7 @@ body::before {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: all 0.2s ease;
     border: none;
-    cursor: pointer;
 }
-
 .btn-telegram { background-color: #0088cc; }
 .btn-telegram:hover { background-color: #0099e6; box-shadow: 0 0 15px rgba(0,136,204,0.4); }
 
@@ -117,7 +178,7 @@ body::before {
     border-radius: 8px;
 }
 
-/* KOD VE SANSÜR ALANI (KESİN ÇÖZÜM) */
+/* Kod ve Kilit Kutusu Tasarımı */
 .code-box-container {
     background-color: #0d0a1a;
     border: 2px solid #1f1938;
@@ -127,7 +188,6 @@ body::before {
     text-align: left;
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
-
 .code-box-header {
     background-color: #07050e;
     padding: 12px 20px;
@@ -138,7 +198,6 @@ body::before {
     color: #888;
     border-bottom: 2px solid #1f1938;
 }
-
 .copy-btn {
     background-color: #ff0044;
     border: none;
@@ -147,18 +206,13 @@ body::before {
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.2s;
 }
-.copy-btn:hover { background-color: #ff3366; }
-
 .code-wrapper {
     position: relative;
     padding: 25px;
     background-color: #030206;
     min-height: 60px;
 }
-
-/* Kodun Okunmasını Engelleyen Gerçek Bulanıklık */
 .code-content {
     font-family: 'Courier New', Courier, monospace;
     color: #00ff66;
@@ -167,21 +221,18 @@ body::before {
     display: block;
     font-size: 0.95rem;
 }
-
 .code-content.blurred {
-    filter: blur(8px) grayscale(1); /* Kodlar tamamen okunmaz hale gelir */
+    filter: blur(8px) grayscale(1);
     user-select: none;
     pointer-events: none;
 }
-
-/* Üstü Kapatan Siyah Kilit Katmanı */
 .lock-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(3, 2, 6, 0.92); /* Kodun üstünü tamamen koyulaştırır */
+    background: rgba(3, 2, 6, 0.94);
     color: #ffffff;
     font-weight: bold;
     font-size: 0.95rem;
@@ -190,22 +241,3 @@ body::before {
     box-sizing: border-box;
     z-index: 5;
 }
-
-/* ANA SAYFA İÇİN ESKİ GRID AYARLARI KORUNDU */
-.search-wrapper {
-    position: relative;
-    max-width: 450px;
-    margin: 0 auto 35px auto;
-    display: flex;
-    align-items: center;
-}
-.search-wrapper i { position: absolute; left: 20px; color: #ff0044; font-size: 1.1rem; z-index: 3; }
-.search-wrapper input {
-    width: 100%; padding: 14px 20px 14px 50px; background-color: #0d0a1a;
-    border: 2px solid #ff0044; border-radius: 25px; color: white; font-size: 1rem;
-    outline: none; box-shadow: 0 0 15px rgba(255, 0, 68, 0.3); position: relative; z-index: 2;
-}
-.grid-container { display: grid; grid-template-columns: repeat(auto-fit, 160px); gap: 15px; justify-content: center; }
-.card { background: #0f0c1b; border: 1px solid #1f1938; border-radius: 8px; overflow: hidden; text-decoration: none; color: white; display: block; max-width: 160px; }
-.card img { width: 100%; height: 95px; object-fit: cover; }
-.card-title { padding: 8px; font-weight: bold; font-size: 0.75rem; background-color: #0b0814; border-top: 1px solid #1f1938; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
