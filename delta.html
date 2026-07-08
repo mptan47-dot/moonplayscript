@@ -1,42 +1,39 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 DELTA APK</title>
-    <link rel="stylesheet" href="style.css">
+    <title>2026 DELTA APK - MOONPLAY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <a href="index.html" class="back-btn">← GERİ DÖN</a>
+        <a href="index.html" class="back-btn">← BACK TO HOME</a>
         <h1 class="neon-title">2026 DELTA APK</h1>
 
         <div class="alert-box">
-            ⚠️ İndirme bağlantısına erişmek için Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız!
+            ⚠️ To unlock the download link, you must join our Telegram channel and subscribe to our YouTube channel!
         </div>
 
         <div class="buttons-container">
             <a href="https://t.me/linkin" target="_blank" class="btn btn-telegram" onclick="startVerification()">
-                <i class="fab fa-telegram-plane"></i> Telegram'a katılın
+                <i class="fab fa-telegram-plane"></i> Join Telegram
             </a>
             <a href="https://youtube.com/linkin" target="_blank" class="btn btn-youtube" onclick="startVerification()">
-                <i class="fab fa-youtube"></i> YouTube kanalına abone olun
+                <i class="fab fa-youtube"></i> Subscribe YouTube
             </a>
         </div>
 
         <div class="code-box-container">
-            <div class="code-box-header">
-                <span>İndirme Bağlantısı Durumu</span>
-            </div>
-            <div class="code-wrapper" style="min-height: 120px; text-align: center;">
+            <div class="code-wrapper" style="min-height: 120px; display: flex; align-items: center; justify-content: center;">
                 <div class="lock-overlay" id="lockOverlay">
-                    İndirme butonunun açılması için yukarıdaki adımları tamamlayın.
+                    Complete the steps above to unlock the DOWNLOAD button.
                 </div>
                 
-                <a href=https://mega.nz/file/0mJiDYaA#gKWK0OPDVUnNMEPr5QuvUjc5cm5uUnEngtF38t5u5ng id="downloadBtn" class="btn btn-download" style="display: none;" target="_blank">
-                    <i class="fas fa-download"></i> DOWNLOAD
+                <a href="BURAYA_MEGA_LINKINI_YAZ" id="downloadBtn" target="_blank" class="btn btn-download" style="display: none;">
+                    <i class="fas fa-download"></i> DOWNLOAD (İNDİR)
                 </a>
             </div>
         </div>
@@ -50,7 +47,7 @@
                 const overlay = document.getElementById('lockOverlay');
                 timer = setInterval(() => {
                     if (countdown > 0) {
-                        overlay.innerText = `Doğrulanıyor... Son ${countdown} saniye.`;
+                        overlay.innerText = `Verifying... ${countdown} seconds left. Stay on the site!`;
                         countdown--;
                     } else {
                         clearInterval(timer);
@@ -63,4 +60,3 @@
     </script>
 </body>
 </html>
-
