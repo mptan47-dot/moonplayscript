@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOORS SCRIPT - AY OYUNU</title>
+    <title>DOORS SCRIPT</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <div class="container">
-        <a href="index.html" class="back-btn">← ANA SAYFAYA DÖN</a>
+        <a href="index.html" class="back-btn">← GERİ DÖN</a>
         <h1 class="neon-title">DOORS SCRIPT</h1>
+
         <div class="alert-box">
-            ⚠️ Bu scriptin kilidini açmak için Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız!
+            ⚠️ SCRIPT kilitlidir! Kilidi açmak için Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız!
         </div>
+
         <div class="buttons-container">
             <a href="https://t.me/linkin" target="_blank" class="btn btn-telegram" onclick="startVerification()">
-                Telegram'a katılın
+                <i class="fab fa-telegram-plane"></i> Telegram'a katılın
             </a>
             <a href="https://youtube.com/linkin" target="_blank" class="btn btn-youtube" onclick="startVerification()">
-                YouTube kanalına abone olun
+                <i class="fab fa-youtube"></i> YouTube kanalına abone olun
             </a>
         </div>
+
         <div class="code-box-container">
             <div class="code-box-header">
                 <span>Komut Dosyası Kodu</span>
@@ -30,13 +35,11 @@
                 <div class="lock-overlay" id="lockOverlay">
                     SCRIPT'in kilidini açmak için yukarıdaki adımları tamamlayın.
                 </div>
-                <code class="code-content blurred" id="codeContent">
-print("Doors Script Başarıyla Yüklendi!")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/doors"))()
-                </code>
+                <code class="code-content blurred" id="codeContent">loadstring(game:HttpGet("https://rawscripts.net/raw/DOORS-Abysall-hub-OP-205906"))()</code>
             </div>
         </div>
     </div>
+
     <script>
         let clicked = false; let countdown = 10; let timer;
         function startVerification() {
@@ -45,7 +48,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/doors"))()
                 const overlay = document.getElementById('lockOverlay');
                 timer = setInterval(() => {
                     if (countdown > 0) {
-                        overlay.innerText = `Doğrulanıyor... Son ${countdown} saniye. Siteden ayrılmayın!`;
+                        overlay.innerText = `Doğrulanıyor... Son ${countdown} saniye.`;
                         countdown--;
                     } else {
                         clearInterval(timer);
@@ -59,9 +62,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/doors"))()
         function copyScript() {
             const codeText = document.getElementById('codeContent').innerText;
             navigator.clipboard.writeText(codeText);
-            alert('Kod başarıyla panoya kopyalandı!');
+            alert('Script panoya kopyalandı!');
         }
     </script>
 </body>
 </html>
-
