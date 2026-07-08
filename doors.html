@@ -1,42 +1,42 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOORS SCRIPT - AY OYUNU</title>
+    <title>DOORS SCRIPT - MOONPLAY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <a href="index.html" class="back-btn">← ANA SAYFAYA DÖN</a>
+        <a href="index.html" class="back-btn">← BACK TO HOME</a>
         <h1 class="neon-title">DOORS SCRIPT</h1>
 
         <div class="alert-box">
-            ⚠️ Bu scriptin kilidini açmak için Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız!
+            ⚠️ To unlock this script, you must join our Telegram channel and subscribe to our YouTube channel!
         </div>
 
         <div class="buttons-container">
             <a href="https://t.me/linkin" target="_blank" class="btn btn-telegram" onclick="startVerification()">
-                <i class="fab fa-telegram-plane"></i> Telegram'a katılın
+                <i class="fab fa-telegram-plane"></i> Join Telegram
             </a>
             <a href="https://youtube.com/linkin" target="_blank" class="btn btn-youtube" onclick="startVerification()">
-                <i class="fab fa-youtube"></i> YouTube kanalına abone olun
+                <i class="fab fa-youtube"></i> Subscribe YouTube
             </a>
         </div>
 
         <div class="code-box-container">
             <div class="code-box-header">
-                <span>Komut Dosyası Kodu</span>
-                <button class="copy-btn" id="copyBtn" onclick="copyScript()" style="display:none;">Kopyala</button>
+                <span>Script Code</span>
+                <button class="copy-btn" id="copyBtn" onclick="copyScript()" style="display:none;">Copy</button>
             </div>
             <div class="code-wrapper">
                 <div class="lock-overlay" id="lockOverlay">
-                    SCRIPT'in kilidini açmak için yukarıdaki adımları tamamlayın.
+                    Complete the steps above to unlock the SCRIPT.
                 </div>
                 <code class="code-content blurred" id="codeContent">
-print("Doors Script Başarıyla Yüklendi!")
+print("Doors Script Successfully Loaded!")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/doors"))()
                 </code>
             </div>
@@ -51,7 +51,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/doors"))()
                 const overlay = document.getElementById('lockOverlay');
                 timer = setInterval(() => {
                     if (countdown > 0) {
-                        overlay.innerText = `Doğrulanıyor... Son ${countdown} saniye. Siteden ayrılmayın!`;
+                        overlay.innerText = `Verifying... ${countdown} seconds left. Stay on the site!`;
                         countdown--;
                     } else {
                         clearInterval(timer);
@@ -65,7 +65,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/doors"))()
         function copyScript() {
             const codeText = document.getElementById('codeContent').innerText;
             navigator.clipboard.writeText(codeText);
-            alert('Kod başarıyla panoya kopyalandı!');
+            alert('Code successfully copied to clipboard!');
         }
     </script>
 </body>
