@@ -18,11 +18,13 @@
         </div>
 
         <div class="buttons-container">
-            <a href="https://t.me/linkin" target="_blank" class="btn btn-telegram" onclick="clickTelegram()">
-                <i class="fab fa-telegram-plane"></i> Join Telegram <span id="tg-check" style="margin-left:5px; color:#00ff66; display:none;">✓</span>
+            <a href="https://t.me/+5BGGE1G9kWoyM2I0" target="_blank" class="btn btn-telegram" id="tgBtn" onclick="clickTelegram()">
+                <span id="tgContent"><i class="fab fa-telegram-plane"></i> Join Telegram</span>
+                <span id="tg-check" style="margin-left:5px; color:#00ff66; display:none;">✓</span>
             </a>
-            <a href="https://youtube.com/linkin" target="_blank" class="btn btn-youtube" onclick="clickYoutube()">
-                <i class="fab fa-youtube"></i> Subscribe YouTube <span id="yt-check" style="margin-left:5px; color:#00ff66; display:none;">✓</span>
+            <a href="https://youtube.com/@moonplay-y7t?si=RrCNzfDpO6at6wPg" target="_blank" class="btn btn-youtube" id="ytBtn" onclick="clickYoutube()">
+                <span id="ytContent"><i class="fab fa-youtube"></i> Subscribe YouTube</span>
+                <span id="yt-check" style="margin-left:5px; color:#00ff66; display:none;">✓</span>
             </a>
         </div>
 
@@ -50,25 +52,53 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/doors"))()
     <script>
         let hasTelegram = false;
         let hasYoutube = false;
-        let verificationStarted = false;
+        let tgTimerStarted = false;
+        let ytTimerStarted = false;
 
         function clickTelegram() {
-            hasTelegram = true;
-            document.getElementById('tg-check').style.display = 'inline';
-            checkBothClicked();
+            if (tgTimerStarted) return;
+            tgTimerStarted = true;
+            
+            const tgContent = document.getElementById('tgContent');
+            let countdown = 10;
+            
+            let timer = setInterval(() => {
+                if (countdown > 0) {
+                    tgContent.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Verifying... ${countdown}s`;
+                    countdown--;
+                } else {
+                    clearInterval(timer);
+                    tgContent.innerHTML = `<i class="fab fa-telegram-plane"></i> Join Telegram`;
+                    document.getElementById('tg-check').style.display = 'inline';
+                    hasTelegram = true;
+                    checkBothClicked();
+                }
+            }, 1000);
         }
 
         function clickYoutube() {
-            hasYoutube = true;
-            document.getElementById('yt-check').style.display = 'inline';
-            checkBothClicked();
+            if (ytTimerStarted) return;
+            ytTimerStarted = true;
+            
+            const ytContent = document.getElementById('ytContent');
+            let countdown = 10;
+            
+            let timer = setInterval(() => {
+                if (countdown > 0) {
+                    ytContent.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Verifying... ${countdown}s`;
+                    countdown--;
+                } else {
+                    clearInterval(timer);
+                    ytContent.innerHTML = `<i class="fab fa-youtube"></i> Subscribe YouTube`;
+                    document.getElementById('yt-check').style.display = 'inline';
+                    hasYoutube = true;
+                    checkBothClicked();
+                }
+            }, 1000);
         }
 
         function checkBothClicked() {
-            if (hasTelegram && hasYoutube && !verificationStarted) {
-                verificationStarted = true;
-                
-                // İlk kilit mesajını gizle, loading ekranını tam üstüne aç
+            if (hasTelegram && hasYoutube) {
                 document.getElementById('lockOverlay').style.display = 'none';
                 const loadingOverlay = document.getElementById('loadingOverlay');
                 const loadingText = document.getElementById('loadingText');
