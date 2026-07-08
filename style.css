@@ -1,229 +1,128 @@
-/* Genel Ayarlar ve Kar Yağışlı Tema */
+/* Genel Ayarlar ve Kar Yağışlı Siyah Tema */
 body {
-    background-color: #0b0914;
+    background-color: #06050c;
     color: #ffffff;
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    position: relative;
-    overflow-x: hidden;
     min-height: 100vh;
+    position: relative;
 }
 
+/* CSS Kesin Çalışan Kar Yağışı Efekti */
 body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background-image: 
-        radial-gradient(circle, #fff 1px, transparent 1px),
-        radial-gradient(circle, #fff 1.5px, transparent 1.5px);
-    background-size: 550px 550px, 400px 400px;
-    background-position: 0 0, 40px 60px;
-    animation: snow 20s linear infinite;
+        radial-gradient(circle, #ffffff 1.5px, transparent 1.5px),
+        radial-gradient(circle, #ffffff 2px, transparent 2px);
+    background-size: 300px 300px, 400px 400px;
+    background-position: 0 0, 50px 100px;
+    animation: snowAnimation 15s linear infinite;
     pointer-events: none;
-    opacity: 0.15;
+    opacity: 0.3; /* Kar belirginliği artırıldı */
     z-index: 1;
 }
 
-@keyframes snow {
-    0% { background-position: 0 0, 40px 60px; }
-    100% { background-position: 550px 550px, 440px 460px; }
+@keyframes snowAnimation {
+    0% { background-position: 0 0, 50px 100px; }
+    100% { background-position: 300px 300px, 450px 500px; }
 }
 
 .container {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 30px 15px;
+    padding: 30px 20px;
     text-align: center;
     position: relative;
     z-index: 2;
 }
 
-/* Kırmızı Neon Başlık */
+/* Kalın, Eğik ve Parlayan Kırmızı Neon Başlık */
 .neon-title {
     color: #ff0044;
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 900;
     font-style: italic;
     text-transform: uppercase;
+    letter-spacing: 2px;
     text-shadow: 0 0 10px #ff0044, 0 0 25px #ff0044;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-/* Nizamî Blogger Tarzı Kart Düzeni */
-.grid-container {
+/* Tam Ortalanmış İç İçe Geçmiş Arama Kutusu Düzeni */
+.search-wrapper {
+    position: relative;
+    max-width: 450px;
+    margin: 0 auto 35px auto;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 20px;
+    color: #ff0044;
+    font-size: 1.1rem;
+    z-index: 3;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 14px 20px 14px 50px; /* Büyüteç için soldan boşluk */
+    background-color: #0d0a1a;
+    border: 2px solid #ff0044;
+    border-radius: 25px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 0, 68, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.search-wrapper input:focus {
+    box-shadow: 0 0 25px rgba(255, 0, 68, 0.6);
+    border-color: #ffffff;
+}
+
+/* Nizami Kart Düzeni */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    max-width: 650px;
-    margin: 0 auto;
+    justify-content: center;
 }
 
 .card {
-    background: #110e22;
-    border: 1px solid #1f1a3a;
+    background: #0f0c1b;
+    border: 1px solid #1f1938;
     border-radius: 10px;
     overflow: hidden;
     text-decoration: none;
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    display: block;
 }
 
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     border-color: #ff0044;
-    box-shadow: 0 0 15px rgba(255, 0, 68, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 68, 0.4);
 }
 
 .card img {
     width: 100%;
-    max-height: 250px;
+    height: 140px;
     object-fit: cover;
 }
 
 .card-title {
-    padding: 15px;
-    font-weight: 800;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    width: 100%;
-    background-color: #0d0a1a;
-    box-sizing: border-box;
-}
-
-/* Detay Sayfası Tasarımları */
-.back-btn {
-    color: #888;
-    text-decoration: none;
-    font-size: 0.9rem;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-.back-btn:hover { color: #fff; }
-
-.alert-box {
-    background: rgba(255, 0, 68, 0.1);
-    border: 1px solid #ff0044;
-    padding: 12px 20px;
-    border-radius: 6px;
-    margin-bottom: 25px;
-    font-size: 0.9rem;
-}
-
-/* Logolu Butonlar */
-.buttons-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.btn {
-    padding: 12px 25px;
-    border-radius: 6px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: all 0.2s;
-}
-
-.btn-telegram { background-color: #0088cc; }
-.btn-telegram:hover { box-shadow: 0 0 12px rgba(0,136,204,0.5); }
-.btn-youtube { background-color: #e50914; }
-.btn-youtube:hover { box-shadow: 0 0 12px rgba(229,9,20,0.5); }
-
-/* Profesyonel İndirme Butonu */
-.btn-download {
-    background: linear-gradient(90deg, #ff0044, #b30030);
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 20px auto;
-    display: inline-flex;
-    border: none;
-    cursor: pointer;
-}
-.btn-download:hover {
-    box-shadow: 0 0 20px rgba(255, 0, 68, 0.6);
-    transform: scale(1.02);
-}
-
-/* Kod Alanı ve Gerçek Sansür Mekanizması */
-.code-box-container {
-    background-color: #050409;
-    border: 1px solid #1a1530;
-    border-radius: 8px;
-    text-align: left;
-    overflow: hidden;
-    max-width: 650px;
-    margin: 0 auto;
-}
-
-.code-box-header {
-    background-color: #0f0c1f;
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: #716c86;
-    border-bottom: 1px solid #1a1530;
-}
-
-.copy-btn {
-    background-color: #ff0044;
-    border: none;
-    color: white;
-    padding: 5px 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.code-wrapper {
-    position: relative;
-    padding: 20px;
-    background-color: #050409;
-}
-
-.code-content {
-    font-family: 'Courier New', Courier, monospace;
-    color: #00ff66;
-    white-space: pre-wrap;
-    word-break: break-all;
-    display: block;
-}
-
-/* Tam Sansür (Bulanıklık) */
-.code-content.blurred {
-    filter: blur(8px);
-    user-select: none;
-    pointer-events: none;
-}
-
-.lock-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(5, 4, 9, 0.75);
-    color: #ffffff;
+    padding: 12px;
     font-weight: bold;
     font-size: 1rem;
-    text-align: center;
-    padding: 15px;
-    box-sizing: border-box;
-    z-index: 5;
+    background-color: #0b0814;
+    border-top: 1px solid #1f1938;
 }
