@@ -1,133 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MM2 SCRIPT - MOONPLAY</title>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2007164968000362" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Mystery 2 Script - MoonPlayScript</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Bu sayfaya özel ek şık ayarlar */
+        .script-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #150f22;
+            border: 2px solid #2d1f47;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #a29bfe;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .back-link:hover {
+            color: #bf55ec;
+            transform: translateX(-5px);
+        }
+
+        .alert-box {
+            background: rgba(191, 85, 236, 0.1);
+            border-left: 4px solid #bf55ec;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            color: #e2d5f3;
+            font-size: 0.95rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .btn-telegram {
+            background: linear-gradient(135deg, #229ED9, #177da8);
+            box-shadow: 0 4px 15px rgba(34, 158, 217, 0.3);
+        }
+
+        .btn-youtube {
+            background: linear-gradient(135deg, #FF0000, #c30000);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-social:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+        }
+
+        /* Kod Bloğu Alanı */
+        .code-area-title {
+            color: #a29bfe;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .code-wrapper {
+            position: relative;
+            background-color: #0a0612;
+            border: 1px solid #2d1f47;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .code-box {
+            font-family: 'Courier New', Courier, monospace;
+            color: #a855f7;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .btn-copy {
+            background-color: #bf55ec;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-copy:hover {
+            background-color: #9333ea;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <a href="index.html" class="back-btn">← BACK TO HOME</a>
-        <h1 class="neon-title">MM2 SCRIPT</h1>
-
-        <div class="alert-box">
-            ⚠️ To unlock this script, you must join our Telegram channel AND subscribe to our YouTube channel!
-        </div>
-
-        <div class="buttons-container">
-            <a href="https://t.me/+5BGGE1G9kWoyM2I0" target="_blank" class="btn btn-telegram" id="tgBtn" onclick="clickTelegram()">
-                <span id="tgContent"><i class="fab fa-telegram-plane"></i> Join Telegram</span>
-                <span id="tg-check" style="margin-left:5px; color:#00ff66; display:none;">✓</span>
-            </a>
-            <a href="https://youtube.com/@moonplay-y7t?si=RrCNzfDpO6at6wPg" target="_blank" class="btn btn-youtube" id="ytBtn" onclick="clickYoutube()">
-                <span id="ytContent"><i class="fab fa-youtube"></i> Subscribe YouTube</span>
-                <span id="yt-check" style="margin-left:5px; color:#00ff66; display:none;">✓</span>
-            </a>
-        </div>
-
-        <div class="code-box-container">
-            <div class="code-box-header">
-                <span>Script Code</span>
-                <button class="copy-btn" id="copyBtn" onclick="copyScript()" style="display:none;">Copy</button>
-            </div>
-            <div class="code-wrapper">
-                <div class="lock-overlay" id="lockOverlay">
-                    Please complete BOTH steps above to unlock the script.
-                </div>
-                <div class="lock-overlay" id="loadingOverlay" style="display: none; background: #030206; z-index: 6;">
-                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: #ff0044; margin-bottom: 10px;"></i>
-                    <div id="loadingText" style="font-weight: bold; font-size: 1.1rem; color: #fff;">Loading... 10s</div>
-                </div>
-                <code class="code-content blurred" id="codeContent">
-print("MM2 Script Successfully Loaded!")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/mm2"))()
-                </code>
-            </div>
-        </div>
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
     </div>
 
+    <main class="container">
+        <div class="script-container">
+            <a href="index.html" class="back-link">← ANA SAYFAYA DÖN</a>
+
+            <h1 class="neon-text" style="font-size: 2.2rem; text-align: center; margin-bottom: 25px;">MYSTERY 2 SCRIPT</h1>
+
+            <div class="alert-box">
+                ⚠️ <strong>Scripti açmak için:</strong> Önce Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız! İki adımı da tamamladıktan sonra aşağıdaki kodu kopyalayabilirsiniz.
+            </div>
+
+            <div class="social-buttons">
+                <a href="https://t.me/moonplayscript" target="_blank" class="btn-social btn-telegram">
+                    ✈️ TELEGRAM'A KATIL
+                </a>
+                <a href="https://youtube.com" target="_blank" class="btn-social btn-youtube">
+                    🎥 YOUTUBE'A ABONE OL
+                </a>
+            </div>
+
+            <div class="code-area-title">Script Kodları</div>
+            <div class="code-wrapper">
+                <div class="code-box" id="scriptCode">print("Murder Mystery 2 Script Successfully Loaded!") loadstring(game:HttpGet("https://raw.githubusercontent.com/ay-oyun/mm2"))()</div>
+            </div>
+
+            <button class="btn-copy" onclick="copyScript()">KODU KOPYALA</button>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 MoonPlayScript. Tüm hakları saklıdır.</p>
+    </footer>
+
     <script>
-        let hasTelegram = false;
-        let hasYoutube = false;
-        let tgTimerStarted = false;
-        let ytTimerStarted = false;
-
-        function clickTelegram() {
-            if (tgTimerStarted) return;
-            tgTimerStarted = true;
-            
-            const tgContent = document.getElementById('tgContent');
-            let countdown = 10;
-            
-            let timer = setInterval(() => {
-                if (countdown > 0) {
-                    tgContent.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Verifying... ${countdown}s`;
-                    countdown--;
-                } else {
-                    clearInterval(timer);
-                    tgContent.innerHTML = `<i class="fab fa-telegram-plane"></i> Join Telegram`;
-                    document.getElementById('tg-check').style.display = 'inline';
-                    hasTelegram = true;
-                    checkBothClicked();
-                }
-            }, 1000);
-        }
-
-        function clickYoutube() {
-            if (ytTimerStarted) return;
-            ytTimerStarted = true;
-            
-            const ytContent = document.getElementById('ytContent');
-            let countdown = 10;
-            
-            let timer = setInterval(() => {
-                if (countdown > 0) {
-                    ytContent.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Verifying... ${countdown}s`;
-                    countdown--;
-                } else {
-                    clearInterval(timer);
-                    ytContent.innerHTML = `<i class="fab fa-youtube"></i> Subscribe YouTube`;
-                    document.getElementById('yt-check').style.display = 'inline';
-                    hasYoutube = true;
-                    checkBothClicked();
-                }
-            }, 1000);
-        }
-
-        function checkBothClicked() {
-            if (hasTelegram && hasYoutube) {
-                document.getElementById('lockOverlay').style.display = 'none';
-                const loadingOverlay = document.getElementById('loadingOverlay');
-                const loadingText = document.getElementById('loadingText');
-                loadingOverlay.style.display = 'flex';
-                loadingOverlay.style.flexDirection = 'column';
-
-                let countdown = 10;
-                let timer = setInterval(() => {
-                    if (countdown > 0) {
-                        loadingText.innerText = `Loading... ${countdown}s`;
-                        countdown--;
-                    } else {
-                        clearInterval(timer);
-                        loadingOverlay.style.display = 'none';
-                        document.getElementById('codeContent').classList.remove('blurred');
-                        document.getElementById('copyBtn').style.display = 'block';
-                    }
-                }, 1000);
-            }
-        }
-
         function copyScript() {
-            const codeText = document.getElementById('codeContent').innerText;
-            navigator.clipboard.writeText(codeText);
-            alert('Code successfully copied to clipboard!');
+            const codeText = document.getElementById("scriptCode").innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const copyBtn = document.querySelector(".btn-copy");
+                copyBtn.innerText = "KOPYALANDI! ✓";
+                copyBtn.style.background = "#2ecc71";
+                setTimeout(() => {
+                    copyBtn.innerText = "KODU KOPYALA";
+                    copyBtn.style.background = "#bf55ec";
+                }, 2000);
+            }).catch(err => {
+                alert("Kopyalanamadı, lütfen elle kopyalayın!");
+            });
         }
     </script>
+
 </body>
 </html>
