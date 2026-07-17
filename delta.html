@@ -5,119 +5,315 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delta APK - MoonPlayScript</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="snowflakes" aria-hidden="true">
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-    </div>
-
-    <div class="container">
-        <h1 class="neon-title">2026 DELTA APK</h1>
-        
-        <div class="lock-warning">
-            <p>⚠️ İndirme bağlantısını açmak için aşağıdaki sosyal medya görevlerini tamamlamanız gerekmektedir.</p>
-        </div>
-
-        <div class="task-container">
-            <div class="task-box">
-                <a href="https://t.me/+5BGGE1G9kWoyM2I0" target="_blank" class="btn btn-telegram" id="tgBtn">
-                    <svg viewBox="0 0 24 24" class="btn-icon"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
-                    TELEGRAM'A KATILIP KİLİDİ AÇ
-                </a>
-                <div class="status-text" id="tgStatus">Bekleniyor...</div>
-            </div>
-
-            <div class="task-box">
-                <a href="https://youtube.com/@moonplay-y7t?si=mCboa4ZW8aSxGgEi" target="_blank" class="btn btn-youtube" id="ytBtn">
-                    <svg viewBox="0 0 24 24" class="btn-icon"><path fill="currentColor" d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.522 3.543 12 3.543 12 3.543s-7.522 0-9.388.512a3.002 3.002 0 0 0-2.11 2.108C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.108C4.478 20.457 12 20.457 12 20.457s7.522 0 9.388-.512a3.002 3.002 0 0 0 2.11-2.108C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    YOUTUBE'A ABONE OLUP KİLİDİ AÇ
-                </a>
-                <div class="status-text" id="ytStatus">Bekleniyor...</div>
-            </div>
-        </div>
-
-        <div class="content-wrapper secured" id="contentWrapper" style="padding: 40px 20px;">
-            <div class="content-overlay" id="contentOverlay">
-                <span class="overlay-lock-icon">🔒 İndirme Bağlantısı Kilitli</span>
-            </div>
-            
-            <p style="color: #ccc; margin-bottom: 20px; font-size: 0.95rem;">
-                Dosya indirmeye hazır! Görevleri tamamladıktan sonra aşağıdaki butondan en güncel Delta APK sürümünü güvenle indirebilirsiniz.
-            </p>
-
-            <a href="https://mega.nz/file/0mJiDYaA#gKWK0OPDVUnNMEPr5QuvUjc5cm5uUnEngtF38t5u5ng" 
-               target="_blank" 
-               id="downloadBtn" 
-               class="btn btn-download disabled-link">
-                DOWOLAND (MEGA.NZ)
-            </a>
-        </div>
-
-        <div style="margin-top: 20px;">
-            <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
-        </div>
-    </div>
-
-    <script>
-        let tgCompleted = false;
-        let ytCompleted = false;
-
-        const tgBtn = document.getElementById('tgBtn');
-        const ytBtn = document.getElementById('ytBtn');
-        const tgStatus = document.getElementById('tgStatus');
-        const ytStatus = document.getElementById('ytStatus');
-        const contentWrapper = document.getElementById('contentWrapper');
-        const contentOverlay = document.getElementById('contentOverlay');
-        const downloadBtn = document.getElementById('downloadBtn');
-
-        function startTimer(statusElement, callback) {
-            let timeLeft = 10;
-            statusElement.innerText = `Doğrulanıyor... ${timeLeft}s`;
-            statusElement.classList.add('verifying');
-
-            const interval = setInterval(() => {
-                timeLeft--;
-                if (timeLeft <= 0) {
-                    clearInterval(interval);
-                    statusElement.innerText = "Doğrulandı! ✓";
-                    statusElement.classList.remove('verifying');
-                    statusElement.classList.add('verified');
-                    callback();
-                } else {
-                    statusElement.innerText = `Doğrulanıyor... ${timeLeft}s`;
-                }
-            }, 1000);
+    <style>
+        .script-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #150f22;
+            border: 2px solid #2d1f47;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
         }
 
-        tgBtn.addEventListener('click', () => {
-            if (!tgCompleted) {
-                tgCompleted = true;
-                startTimer(tgStatus, checkUnlocks);
-            }
-        });
+        .back-link {
+            display: inline-block;
+            color: #a29bfe;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: color 0.3s, transform 0.2s;
+        }
 
-        ytBtn.addEventListener('click', () => {
-            if (!ytCompleted) {
-                ytCompleted = true;
-                startTimer(ytStatus, checkUnlocks);
-            }
-        });
+        .back-link:hover {
+            color: #bf55ec;
+            transform: translateX(-5px);
+        }
 
-        function checkUnlocks() {
-            if (tgStatus.classList.contains('verified') && ytStatus.classList.contains('verified')) {
-                contentWrapper.classList.remove('secured');
-                contentOverlay.style.display = 'none';
-                downloadBtn.classList.remove('disabled-link');
+        .alert-box {
+            background: rgba(191, 85, 236, 0.1);
+            border-left: 4px solid #bf55ec;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            color: #e2d5f3;
+            font-size: 0.95rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-social svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc, #006699);
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+        }
+
+        .btn-youtube {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-social:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .verify-status {
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: -5px;
+            margin-bottom: 15px;
+            color: #ff9f43;
+            display: none;
+        }
+
+        .code-area-title {
+            color: #a29bfe;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .code-wrapper {
+            position: relative;
+            background-color: #0a0612;
+            border: 1px solid #2d1f47;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .code-box {
+            font-family: 'Courier New', Courier, monospace;
+            color: #a855f7;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            transition: filter 0.5s ease;
+            filter: blur(8px); /* İlk başta sansürlü */
+            user-select: none;
+        }
+
+        .code-box.unlocked {
+            filter: blur(0);
+            user-select: text;
+        }
+
+        .lock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 6, 18, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bf55ec;
+            font-weight: bold;
+            font-size: 1.1rem;
+            z-index: 5;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Profesyonel İndirme Butonu */
+        .btn-download {
+            display: block;
+            text-align: center;
+            background: #444;
+            color: #888;
+            padding: 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 1.1rem;
+            border: 2px solid #2d1f47;
+            cursor: not-allowed;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .btn-download.unlocked {
+            background: linear-gradient(135deg, #bf55ec, #8e44ad);
+            color: white;
+            border-color: #bf55ec;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(191, 85, 236, 0.4);
+        }
+
+        .btn-download.unlocked:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(191, 85, 236, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+    </div>
+
+    <main class="container">
+        <div class="script-container">
+            <a href="index.html" class="back-link">← ANA SAYFAYA DÖN</a>
+
+            <h1 style="font-size: 2.2rem; text-align: center; margin-bottom: 25px; color: #bf55ec; text-shadow: 0 0 15px #bf55ec;">DELTA APK</h1>
+
+            <div class="alert-box">
+                ⚠️ <strong>İndirme bağlantısını açmak için:</strong> Önce aşağıdaki Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız! Her iki adım için de 10 saniye doğrulama beklenecektir.
+            </div>
+
+            <div class="social-buttons">
+                <a href="[https://t.me/+5BGGE1G9kWoyM2I0](https://t.me/+5BGGE1G9kWoyM2I0)" target="_blank" class="btn-social btn-telegram" id="tgBtn" onclick="startVerify('tg')">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.12.89-.54 3.42-.75 4.54-.09.47-.26.63-.43.65-.37.03-.65-.25-.97-.46-.51-.33-.8-.54-1.3-.87-.57-.38-.2-.59.12-.93.09-.09 1.57-1.44 1.6-1.57.01-.02.01-.09-.03-.12-.04-.03-.1-.02-.15-.01-.06.01-1.07.68-3.03 2a3.86 3.86 0 0 1-1.12.28c-.37-.01-1.09-.21-1.61-.38-.65-.21-1.16-.32-1.12-.67.02-.18.27-.37.75-.56 2.94-1.28 4.9-2.12 5.88-2.53 2.8-.1.58.74.58.93z"/>
+                    </svg>
+                    TELEGRAMA KATILARAK KODUN KİLİDİNİ AÇ
+                </a>
+                <div class="verify-status" id="tgVerifyText">Doğrulanıyor... 10s</div>
+
+                <a href="[https://youtube.com/@moonplay-y7t?si=mCboa4ZW8aSxGgEi](https://youtube.com/@moonplay-y7t?si=mCboa4ZW8aSxGgEi)" target="_blank" class="btn-social btn-youtube" id="ytBtn" onclick="startVerify('yt')">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    YOUTUBE'A ABONE OLARAK KODUN KİLİDİNİ AÇ
+                </a>
+                <div class="verify-status" id="ytVerifyText">Doğrulanıyor... 10s</div>
+            </div>
+
+            <div class="code-area-title">İndirme Bağlantısı</div>
+            <div class="code-wrapper">
+                <div class="lock-overlay" id="lockOverlay">HER İKİ GÖREVİ DE TAMAMLAYINCA İNDİRME AKTİF OLACAK</div>
+                <div class="code-box" id="scriptCode">Bağlantı başarıyla doğrulandı! Güvenli indirme butonuna tıklayabilirsiniz.</div>
+            </div>
+
+            <a href="#" class="btn-download" id="downloadBtn" target="_blank" onclick="return checkDownload(event)">İNDİRME LİNKİ KİLİTLİ</a>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 MoonPlayScript. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        let tgVerified = false;
+        let ytVerified = false;
+
+        function startVerify(type) {
+            if (type === 'tg' && !tgVerified) {
+                let btn = document.getElementById('tgBtn');
+                let text = document.getElementById('tgVerifyText');
+                let timeLeft = 10;
+                
+                text.style.display = 'block';
+                btn.removeAttribute('href');
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = '0.6';
+                
+                let interval = setInterval(() => {
+                    timeLeft--;
+                    text.innerText = `Telegram Doğrulanıyor... ${timeLeft}s`;
+                    if (timeLeft <= 0) {
+                        clearInterval(interval);
+                        text.innerText = "Telegram Doğrulandı! ✓";
+                        text.style.color = "#2ecc71";
+                        tgVerified = true;
+                        checkUnlock();
+                    }
+                }, 1000);
             }
+
+            if (type === 'yt' && !ytVerified) {
+                let btn = document.getElementById('ytBtn');
+                let text = document.getElementById('ytVerifyText');
+                let timeLeft = 10;
+                
+                text.style.display = 'block';
+                btn.removeAttribute('href');
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = '0.6';
+                
+                let interval = setInterval(() => {
+                    timeLeft--;
+                    text.innerText = `YouTube Doğrulanıyor... ${timeLeft}s`;
+                    if (timeLeft <= 0) {
+                        clearInterval(interval);
+                        text.innerText = "YouTube Doğrulandı! ✓";
+                        text.style.color = "#2ecc71";
+                        ytVerified = true;
+                        checkUnlock();
+                    }
+                }, 1000);
+            }
+        }
+
+        function checkUnlock() {
+            if (tgVerified && ytVerified) {
+                document.getElementById('lockOverlay').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('lockOverlay').style.display = 'none';
+                }, 500);
+                
+                let codeBox = document.getElementById('scriptCode');
+                codeBox.classList.add('unlocked');
+                
+                let downloadBtn = document.getElementById('downloadBtn');
+                downloadBtn.classList.add('unlocked');
+                downloadBtn.setAttribute('href', '[https://mega.nz/file/0mJiDYaA#gKWK0OPDVUnNMEPr5QuvUjc5cm5uUnEngtF38t5u5ng](https://mega.nz/file/0mJiDYaA#gKWK0OPDVUnNMEPr5QuvUjc5cm5uUnEngtF38t5u5ng)');
+                downloadBtn.innerText = "DOWOLAND (MEGA.NZ)";
+            }
+        }
+
+        function checkDownload(event) {
+            if (!tgVerified || !ytVerified) {
+                event.preventDefault();
+                return false;
+            }
+            return true;
         }
     </script>
 </body>
