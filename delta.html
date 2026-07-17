@@ -148,6 +148,8 @@
             font-size: 1.1rem;
             z-index: 5;
             transition: opacity 0.5s ease;
+            text-align: center;
+            padding: 10px;
         }
 
         /* Profesyonel İndirme Butonu */
@@ -185,23 +187,23 @@
 <body>
 
     <div class="snowflakes" aria-hidden="true">
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
     </div>
 
     <main class="container">
         <div class="script-container">
             <a href="index.html" class="back-link">← ANA SAYFAYA DÖN</a>
 
-            <h1 style="font-size: 2.2rem; text-align: center; margin-bottom: 25px; color: #bf55ec; text-shadow: 0 0 15px #bf55ec;">DELTA APK</h1>
+            <h1 style="font-size: 2.2rem; text-align: center; margin-bottom: 25px; color: #bf55ec; text-shadow: 0 0 15px #bf55ec; font-weight: 900; letter-spacing: 1.5px;">MOONPLAYSCRIPT - DELTA APK</h1>
 
             <div class="alert-box">
                 ⚠️ <strong>Script kilidini açmak için:</strong> Önce aşağıdaki Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız! Her iki adım için de 10 saniye doğrulama beklenecektir.
@@ -231,11 +233,11 @@
                 <div class="code-box" id="scriptCode">Bağlantı başarıyla doğrulandı! Güvenli indirme butonuna tıklayabilirsiniz.</div>
             </div>
 
-            <a href="#" class="btn-download" id="downloadBtn" target="_blank" onclick="return checkDownload(event)">İNDİRME LİNKİ KİLİTLİ</a>
+            <a href="#" class="btn-download" id="downloadBtn" onclick="return checkDownload(event)">İNDİRME LİNKİ KİLİTLİ</a>
         </div>
     </main>
-
-    <footer class="main-footer">
+    
+    <footer style="text-align: center; margin-top: 30px; padding: 20px; color: #666; font-size: 0.85rem;">
         <p>&copy; 2026 MoonPlayScript. Tüm hakları saklıdır.</p>
     </footer>
 
@@ -249,7 +251,6 @@
                 let text = document.getElementById('tgVerifyText');
                 let timeLeft = 10;
                 
-                // Telegram linkini yeni sekmede açar
                 window.open('https://t.me/+5BGGE1G9kWoyM2I0', '_blank');
                 
                 text.style.display = 'block';
@@ -274,7 +275,6 @@
                 let text = document.getElementById('ytVerifyText');
                 let timeLeft = 10;
                 
-                // YouTube linkini yeni sekmede açar
                 window.open('https://youtube.com/@moonplay-y7t?si=mCboa4ZW8aSxGgEi', '_blank');
                 
                 text.style.display = 'block';
@@ -297,9 +297,10 @@
 
         function checkUnlock() {
             if (tgVerified && ytVerified) {
-                document.getElementById('lockOverlay').style.opacity = '0';
+                let overlay = document.getElementById('lockOverlay');
+                overlay.style.opacity = '0';
                 setTimeout(() => {
-                    document.getElementById('lockOverlay').style.display = 'none';
+                    overlay.style.display = 'none';
                 }, 500);
                 
                 let codeBox = document.getElementById('scriptCode');
@@ -307,9 +308,11 @@
                 
                 let downloadBtn = document.getElementById('downloadBtn');
                 downloadBtn.classList.add('unlocked');
-                // Link buraya gömüldü:
-                downloadBtn.setAttribute('href', 'https://mega.nz/file/0mJiDYaA#gKWK0OPDVUnNMEPr5QuvUjc5cm5uUnEngtF38t5u5ng');
-                downloadBtn.innerText = "DOWOLAND (MEGA.NZ)";
+                
+                // Gönderdiğin CPABuild Linki Buraya Eklendi
+                downloadBtn.setAttribute('href', 'https://www.cdndn.com/unlock/FDOd');
+                downloadBtn.setAttribute('target', '_blank');
+                downloadBtn.innerText = "DOWNLOAD (GÖREVİ TAMAMLA)";
             }
         }
 
