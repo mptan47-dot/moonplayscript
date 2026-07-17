@@ -1,74 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOONPLAY - ROBLOX SCRIPTS</title>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2007164968000362" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>MoonPlayScript - Roblox Scripts</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="loader">
-        <div class="spinner"></div>
-        <div class="loader-text">MOONPLAY TR LOADING...</div>
-    </div>
-
-    <div class="container" id="main-content" style="display:none;">
-        <h1 class="neon-title">MOONPLAY SCRIPTS</h1>
-        
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Search script..." onkeyup="searchScripts()">
+    <header class="main-header">
+        <div class="logo-container">
+            <h1 class="site-title">MOONPLAYSCRIPT</h1>
+            <p class="site-subtitle">Ücretsiz ve Güvenilir Roblox Scriptleri</p>
         </div>
+    </header>
 
-        <div class="grid-container" id="scriptGrid">
-            <div class="card" onclick="location.href='doors.html'">
-                <img src="./doors.png" alt="Doors" onerror="this.src='https://placehold.co/300x180/121212/ffffff?text=DOORS'">
-                <h3>DOORS SCRIPT</h3>
+    <main class="container">
+        <div class="script-grid">
+
+            <div class="script-card">
+                <div class="card-image">
+                    <img src="./Screenshot_20260717-102732-display-0.png.png" alt="Delta Logo" class="script-img">
+                </div>
+                <div class="card-content">
+                    <h3>Delta Script</h3>
+                    <p>En popüler ve güncel Delta executor scriptleri burada.</p>
+                    <a href="delta.html" class="btn">Scripte Git</a>
+                </div>
             </div>
 
-            <div class="card" onclick="location.href='mm2.html'">
-                <img src="./mm2.png" alt="MM2" onerror="this.src='https://placehold.co/300x180/121212/ffffff?text=MM2'">
-                <h3>MM2 SCRIPT</h3>
+            <div class="script-card">
+                <div class="card-image">
+                    <img src="./doors.png" alt="Doors Script" class="script-img">
+                </div>
+                <div class="card-content">
+                    <h3>Doors Script</h3>
+                    <p>Doors oyununda hayatta kalmanızı sağlayacak özel hileler.</p>
+                    <a href="doors.html" class="btn">Scripte Git</a>
+                </div>
             </div>
 
-            <div class="card" onclick="location.href='delta.html'">
-                <img src="./delta.png" alt="Delta" onerror="this.src='https://placehold.co/300x180/121212/ffffff?text=DELTA+APK'">
-                <h3>2026 DELTA APK</h3>
+            <div class="script-card">
+                <div class="card-image">
+                    <img src="./mm2.png" alt="MM2 Script" class="script-img">
+                </div>
+                <div class="card-content">
+                    <h3>Mm2 Script</h3>
+                    <p>Murder Mystery 2 için en iyi çalışan güncel script kodları.</p>
+                    <a href="mm2.html" class="btn">Scripte Git</a>
+                </div>
             </div>
+
         </div>
-    </div>
+    </main>
 
-    <script type='text/javascript' src='https://www.cdnnd.com/offerwall-v2.js?bid=84UwYl'></script>
+    <footer class="main-footer">
+        <p>&copy; 2026 MoonPlayScript. Tüm hakları saklıdır.</p>
+    </footer>
 
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loader').style.opacity = '0';
-                setTimeout(function() {
-                    document.getElementById('loader').style.display = 'none';
-                    document.getElementById('main-content').style.display = 'block';
-                }, 500);
-            }, 2000);
-        });
-
-        function searchScripts() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('card');
-            
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-                if (title.includes(input)) {
-                    cards[i].style.display = "block";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 </body>
 </html>
