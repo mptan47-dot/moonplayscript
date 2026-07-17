@@ -3,192 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 Delta APK - MoonPlayScript</title>
+    <title>Delta APK - MoonPlayScript</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Bu sayfaya özel ek şık ayarlar */
-        .script-container {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: #150f22;
-            border: 2px solid #2d1f47;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
-            z-index: 2;
-        }
-
-        .back-link {
-            display: inline-block;
-            color: #a29bfe;
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 20px;
-            transition: color 0.3s, transform 0.2s;
-        }
-
-        .back-link:hover {
-            color: #bf55ec;
-            transform: translateX(-5px);
-        }
-
-        .alert-box {
-            background: rgba(191, 85, 236, 0.1);
-            border-left: 4px solid #bf55ec;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            color: #e2d5f3;
-            font-size: 0.95rem;
-        }
-
-        .social-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .btn-social {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: transform 0.2s, box-shadow 0.3s;
-        }
-
-        .btn-telegram {
-            background: linear-gradient(135deg, #229ED9, #177da8);
-            box-shadow: 0 4px 15px rgba(34, 158, 217, 0.3);
-        }
-
-        .btn-youtube {
-            background: linear-gradient(135deg, #FF0000, #c30000);
-            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-        }
-
-        .btn-social:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
-        }
-
-        /* Kod Bloğu Alanı */
-        .code-area-title {
-            color: #a29bfe;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .code-wrapper {
-            position: relative;
-            background-color: #0a0612;
-            border: 1px solid #2d1f47;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            overflow-x: auto;
-        }
-
-        .code-box {
-            font-family: 'Courier New', Courier, monospace;
-            color: #a855f7;
-            font-size: 0.9rem;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        .btn-copy {
-            background-color: #bf55ec;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 700;
-            width: 100%;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .btn-copy:hover {
-            background-color: #9333ea;
-            transform: translateY(-2px);
-        }
-    </style>
 </head>
 <body>
-
     <div class="snowflakes" aria-hidden="true">
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
     </div>
 
-    <main class="container">
-        <div class="script-container">
-            <a href="index.html" class="back-link">← ANA SAYFAYA DÖN</a>
-
-            <h1 class="neon-text" style="font-size: 2.2rem; text-align: center; margin-bottom: 25px;">DELTA APK</h1>
-
-            <div class="alert-box">
-                ⚠️ <strong>APK Dosyasına erişmek için:</strong> Önce Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız! İki adımı da tamamladıktan sonra aşağıdaki indirme linkini kopyalayabilir veya kullanabilirsiniz.
-            </div>
-
-            <div class="social-buttons">
-                <a href="https://t.me/moonplayscript" target="_blank" class="btn-social btn-telegram">
-                    ✈️ TELEGRAM'A KATIL
-                </a>
-                <a href="https://youtube.com" target="_blank" class="btn-social btn-youtube">
-                    🎥 YOUTUBE'A ABONE OL
-                </a>
-            </div>
-
-            <div class="code-area-title">Delta APK İndirme Linki / Kurulum Kodu</div>
-            <div class="code-wrapper">
-                <div class="code-box" id="scriptCode">https://delta-executor.com/download/android-apk/</div>
-            </div>
-
-            <button class="btn-copy" onclick="copyScript()">İNDİRME LİNKİNİ KOPYALA</button>
+    <div class="container">
+        <h1 class="neon-title">2026 DELTA APK</h1>
+        
+        <div class="lock-warning">
+            <p>⚠️ İndirme bağlantısını açmak için aşağıdaki sosyal medya görevlerini tamamlamanız gerekmektedir.</p>
         </div>
-    </main>
 
-    <footer class="main-footer">
-        <p>&copy; 2026 MoonPlayScript. Tüm hakları saklıdır.</p>
-    </footer>
+        <div class="task-container">
+            <div class="task-box">
+                <a href="https://t.me/+5BGGE1G9kWoyM2I0" target="_blank" class="btn btn-telegram" id="tgBtn">
+                    <svg viewBox="0 0 24 24" class="btn-icon"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+                    TELEGRAM'A KATILIP KİLİDİ AÇ
+                </a>
+                <div class="status-text" id="tgStatus">Bekleniyor...</div>
+            </div>
+
+            <div class="task-box">
+                <a href="https://youtube.com/@moonplay-y7t?si=mCboa4ZW8aSxGgEi" target="_blank" class="btn btn-youtube" id="ytBtn">
+                    <svg viewBox="0 0 24 24" class="btn-icon"><path fill="currentColor" d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.522 3.543 12 3.543 12 3.543s-7.522 0-9.388.512a3.002 3.002 0 0 0-2.11 2.108C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.108C4.478 20.457 12 20.457 12 20.457s7.522 0 9.388-.512a3.002 3.002 0 0 0 2.11-2.108C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    YOUTUBE'A ABONE OLUP KİLİDİ AÇ
+                </a>
+                <div class="status-text" id="ytStatus">Bekleniyor...</div>
+            </div>
+        </div>
+
+        <div class="content-wrapper secured" id="contentWrapper" style="padding: 40px 20px;">
+            <div class="content-overlay" id="contentOverlay">
+                <span class="overlay-lock-icon">🔒 İndirme Bağlantısı Kilitli</span>
+            </div>
+            
+            <p style="color: #ccc; margin-bottom: 20px; font-size: 0.95rem;">
+                Dosya indirmeye hazır! Görevleri tamamladıktan sonra aşağıdaki butondan en güncel Delta APK sürümünü güvenle indirebilirsiniz.
+            </p>
+
+            <a href="https://mega.nz/file/0mJiDYaA#gKWK0OPDVUnNMEPr5QuvUjc5cm5uUnEngtF38t5u5ng" 
+               target="_blank" 
+               id="downloadBtn" 
+               class="btn btn-download disabled-link">
+                DOWOLAND (MEGA.NZ)
+            </a>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+        </div>
+    </div>
 
     <script>
-        function copyScript() {
-            const codeText = document.getElementById("scriptCode").innerText;
-            navigator.clipboard.writeText(codeText).then(() => {
-                const copyBtn = document.querySelector(".btn-copy");
-                copyBtn.innerText = "KOPYALANDI! ✓";
-                copyBtn.style.background = "#2ecc71";
-                setTimeout(() => {
-                    copyBtn.innerText = "İNDİRME LİNKİNİ KOPYALA";
-                    copyBtn.style.background = "#bf55ec";
-                }, 2000);
-            }).catch(err => {
-                alert("Kopyalanamadı, lütfen elle kopyalayın!");
-            });
+        let tgCompleted = false;
+        let ytCompleted = false;
+
+        const tgBtn = document.getElementById('tgBtn');
+        const ytBtn = document.getElementById('ytBtn');
+        const tgStatus = document.getElementById('tgStatus');
+        const ytStatus = document.getElementById('ytStatus');
+        const contentWrapper = document.getElementById('contentWrapper');
+        const contentOverlay = document.getElementById('contentOverlay');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        function startTimer(statusElement, callback) {
+            let timeLeft = 10;
+            statusElement.innerText = `Doğrulanıyor... ${timeLeft}s`;
+            statusElement.classList.add('verifying');
+
+            const interval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    statusElement.innerText = "Doğrulandı! ✓";
+                    statusElement.classList.remove('verifying');
+                    statusElement.classList.add('verified');
+                    callback();
+                } else {
+                    statusElement.innerText = `Doğrulanıyor... ${timeLeft}s`;
+                }
+            }, 1000);
+        }
+
+        tgBtn.addEventListener('click', () => {
+            if (!tgCompleted) {
+                tgCompleted = true;
+                startTimer(tgStatus, checkUnlocks);
+            }
+        });
+
+        ytBtn.addEventListener('click', () => {
+            if (!ytCompleted) {
+                ytCompleted = true;
+                startTimer(ytStatus, checkUnlocks);
+            }
+        });
+
+        function checkUnlocks() {
+            if (tgStatus.classList.contains('verified') && ytStatus.classList.contains('verified')) {
+                contentWrapper.classList.remove('secured');
+                contentOverlay.style.display = 'none';
+                downloadBtn.classList.remove('disabled-link');
+            }
         }
     </script>
-
 </body>
 </html>
