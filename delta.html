@@ -233,7 +233,15 @@
                 <div class="code-box" id="scriptCode">Bağlantı başarıyla doğrulandı! Güvenli indirme butonuna tıklayabilirsiniz.</div>
             </div>
 
-            <a href="#" class="btn-download" id="downloadBtn" onclick="return checkDownload(event)">İNDİRME LİNKİ KİLİTLİ</a>
+            <a href="https://mega.nz" 
+               class="btn-download" 
+               id="downloadBtn" 
+               data-interact-trigger
+               data-tool-id="65200"
+               data-tool-slug="FDOd"
+               onclick="return checkDownload(event)">
+               İNDİRME LİNKİ KİLİTLİ
+            </a>
         </div>
     </main>
     
@@ -309,9 +317,7 @@
                 let downloadBtn = document.getElementById('downloadBtn');
                 downloadBtn.classList.add('unlocked');
                 
-                // Gönderdiğin CPABuild Linki Buraya Eklendi
-                downloadBtn.setAttribute('href', 'https://www.cdndn.com/unlock/FDOd');
-                downloadBtn.setAttribute('target', '_blank');
+                // Eski cdndn linki yerine butonun asıl indirme (Mega vb.) adresi ve CPALead tetikleyici yazısı ayarlandı
                 downloadBtn.innerText = "DOWNLOAD (GÖREVİ TAMAMLA)";
             }
         }
@@ -324,5 +330,8 @@
             return true;
         }
     </script>
+
+    <script>window.CPAlead_PublisherUserId = 3355147;</script>
+    <script src="https://cdnflair.com/js/interact-form.js" async defer></script>
 </body>
 </html>
