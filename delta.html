@@ -124,7 +124,7 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             transition: filter 0.5s ease;
-            filter: blur(8px); /* İlk başta sansürlü */
+            filter: blur(8px);
             user-select: none;
         }
 
@@ -204,24 +204,24 @@
             <h1 style="font-size: 2.2rem; text-align: center; margin-bottom: 25px; color: #bf55ec; text-shadow: 0 0 15px #bf55ec;">DELTA APK</h1>
 
             <div class="alert-box">
-                ⚠️ <strong>İndirme bağlantısını açmak için:</strong> Önce aşağıdaki Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız! Her iki adım için de 10 saniye doğrulama beklenecektir.
+                ⚠️ <strong>Script kilidini açmak için:</strong> Önce aşağıdaki Telegram kanalımıza katılmalı ve YouTube kanalımıza abone olmalısınız! Her iki adım için de 10 saniye doğrulama beklenecektir.
             </div>
 
             <div class="social-buttons">
-                <a href="[https://t.me/+5BGGE1G9kWoyM2I0](https://t.me/+5BGGE1G9kWoyM2I0)" target="_blank" class="btn-social btn-telegram" id="tgBtn" onclick="startVerify('tg')">
+                <button class="btn-social btn-telegram" id="tgBtn" onclick="startVerify('tg')">
                     <svg viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.12.89-.54 3.42-.75 4.54-.09.47-.26.63-.43.65-.37.03-.65-.25-.97-.46-.51-.33-.8-.54-1.3-.87-.57-.38-.2-.59.12-.93.09-.09 1.57-1.44 1.6-1.57.01-.02.01-.09-.03-.12-.04-.03-.1-.02-.15-.01-.06.01-1.07.68-3.03 2a3.86 3.86 0 0 1-1.12.28c-.37-.01-1.09-.21-1.61-.38-.65-.21-1.16-.32-1.12-.67.02-.18.27-.37.75-.56 2.94-1.28 4.9-2.12 5.88-2.53 2.8-.1.58.74.58.93z"/>
                     </svg>
                     TELEGRAMA KATILARAK KODUN KİLİDİNİ AÇ
-                </a>
+                </button>
                 <div class="verify-status" id="tgVerifyText">Doğrulanıyor... 10s</div>
 
-                <a href="[https://youtube.com/@moonplay-y7t?si=mCboa4ZW8aSxGgEi](https://youtube.com/@moonplay-y7t?si=mCboa4ZW8aSxGgEi)" target="_blank" class="btn-social btn-youtube" id="ytBtn" onclick="startVerify('yt')">
+                <button class="btn-social btn-youtube" id="ytBtn" onclick="startVerify('yt')">
                     <svg viewBox="0 0 24 24">
                         <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                     </svg>
                     YOUTUBE'A ABONE OLARAK KODUN KİLİDİNİ AÇ
-                </a>
+                </button>
                 <div class="verify-status" id="ytVerifyText">Doğrulanıyor... 10s</div>
             </div>
 
@@ -249,8 +249,10 @@
                 let text = document.getElementById('tgVerifyText');
                 let timeLeft = 10;
                 
+                // Telegram linkini yeni sekmede açar
+                window.open('https://t.me/+5BGGE1G9kWoyM2I0', '_blank');
+                
                 text.style.display = 'block';
-                btn.removeAttribute('href');
                 btn.style.pointerEvents = 'none';
                 btn.style.opacity = '0.6';
                 
@@ -272,8 +274,10 @@
                 let text = document.getElementById('ytVerifyText');
                 let timeLeft = 10;
                 
+                // YouTube linkini yeni sekmede açar
+                window.open('https://youtube.com/@moonplay-y7t?si=mCboa4ZW8aSxGgEi', '_blank');
+                
                 text.style.display = 'block';
-                btn.removeAttribute('href');
                 btn.style.pointerEvents = 'none';
                 btn.style.opacity = '0.6';
                 
@@ -303,7 +307,8 @@
                 
                 let downloadBtn = document.getElementById('downloadBtn');
                 downloadBtn.classList.add('unlocked');
-                downloadBtn.setAttribute('href', '[https://mega.nz/file/0mJiDYaA#gKWK0OPDVUnNMEPr5QuvUjc5cm5uUnEngtF38t5u5ng](https://mega.nz/file/0mJiDYaA#gKWK0OPDVUnNMEPr5QuvUjc5cm5uUnEngtF38t5u5ng)');
+                // Link buraya gömüldü:
+                downloadBtn.setAttribute('href', 'https://mega.nz/file/0mJiDYaA#gKWK0OPDVUnNMEPr5QuvUjc5cm5uUnEngtF38t5u5ng');
                 downloadBtn.innerText = "DOWOLAND (MEGA.NZ)";
             }
         }
